@@ -9,7 +9,7 @@ char *mul(const char *bn1, const char *bn2)
     int len = len1 + len2;
     int i, j, p1, p2, product, sum = 0;
     int *out = (int *)malloc(len * sizeof(int));
-    char *ret = (char *)malloc(len * sizeof(char));
+    char *ret = (char *)malloc((len + 1) * sizeof(char));
 
     memset(out, 0, len * sizeof(int));
     memset(ret, 0, len * sizeof(char));
