@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void merge(const int *seq1, int len1, const int *seq2, int len2, int *out)
+void merge(const int *seq1, int len1, const int *seq2, int len2, int **p)
 {
     int count = 0, i = 0, j = 0;
-    out = (int *)malloc((len1 + len2) * sizeof(int));
+    int *out = (int *)malloc((len1 + len2) * sizeof(int));
+    *p = out;
     while (i < len1 && j < len2) {
         if (seq1[i] < seq2[j]) {
             out[count++] = seq1[i++];
@@ -30,9 +31,9 @@ int main()
 {
     int seq1[5] = {1, 3, 4, 7, 9};
     int seq2[3] = {2, 4, 10};
-    int *out;
+    int *out = NULL;
 
-    merge(seq1, 5, seq2, 3, out);
+    merge(seq1, 5, seq2, 3, &out);
     free(out);
 
     return 0;
